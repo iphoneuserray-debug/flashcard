@@ -1,5 +1,78 @@
+/* Trigger row (one per DialogButton) */
 #add-buttons {
-    display: flex;
-    justify-content: end;
-    gap: 5px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+#add-buttons > button {
+  flex: 1;
+  font-weight: 600;
+  color: var(--primary);
+  border-color: #d7d5f5;
+  background: #f2f1fd;
+}
+
+#add-buttons > button:hover {
+  background: #e8e6fb;
+}
+
+/* Dialog card — only style [open] so it stays hidden when closed */
+dialog {
+  margin: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  width: min(360px, calc(100vw - 32px));
+  background: var(--surface);
+  color: var(--text);
+}
+
+dialog[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+dialog::backdrop {
+  background: rgba(16, 24, 40, .35);
+}
+
+dialog label {
+  margin-top: 10px;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+dialog input {
+  font: inherit;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+dialog input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, .15);
+}
+
+dialog button {
+  margin-top: 12px;
+}
+
+/* Submit is the primary action inside the form */
+dialog button[type="submit"] {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+dialog button[type="submit"]:hover {
+  background: var(--primary-hover);
 }

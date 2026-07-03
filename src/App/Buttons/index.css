@@ -1,4 +1,42 @@
 #buttons {
-    display: flex;
-    gap: 5px;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  max-width: 500px;
+}
+
+#buttons button {
+  flex: 1;
+  font-weight: 600;
+}
+
+/* Semantic colours so the three actions read at a glance */
+#buttons button:nth-child(1) {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #b91c1c;
+}
+
+#buttons button:nth-child(1):hover {
+  background: #fee2e2;
+}
+
+#buttons button:nth-child(2) {
+  background: #fffbeb;
+  border-color: #fde68a;
+  color: #b45309;
+}
+
+#buttons button:nth-child(2):hover {
+  background: #fef3c7;
+}
+
+#buttons button:nth-child(3) {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+  color: #15803d;
+}
+
+#buttons button:nth-child(3):hover {
+  background: #dcfce7;
 }

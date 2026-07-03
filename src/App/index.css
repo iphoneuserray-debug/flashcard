@@ -1,0 +1,7 @@
+/* Vertical stack for the whole app: card, study buttons, add buttons */
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
