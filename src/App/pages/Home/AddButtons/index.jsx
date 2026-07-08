@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import DialogButton from "../DialogButton";
-import { creatOne } from "../../api";
+import { creatOne } from "../../../../api";
 
 function Word(spanish, english, sNote, eNote, familarity) {
     this.spanish = spanish
