@@ -3,7 +3,7 @@ import './index.css'
 import FlashCard from './FlashCard'
 import Buttons from './Buttons'
 import AddButtons from './AddButtons'
-import { getBy, update } from '../../../api'
+import { getAll, update } from '../../../api'
 
 export const Familarity = Object.freeze({
     FORGET: 'FORGET',
@@ -43,8 +43,18 @@ export default function Home() {
         getNextWord()
     }
 
+    const onClick = () => {
+        getAll([Familarity.FORGET, Familarity.REMEMBER], 50).then(loaded => {
+            setWords(loaded)
+            if (loaded?.length) {
+                setWord(loaded[0])
+                index.current = 1
+            }
+        })
+    }
+
     useEffect(() => {
-        getBy([Familarity.FORGET, Familarity.REMEMBER]).then(loaded => {
+        getAll([Familarity.FORGET, Familarity.REMEMBER], 50).then(loaded => {
             setWords(loaded)
             if (loaded?.length) {
                 setWord(loaded[0])
@@ -58,7 +68,8 @@ export default function Home() {
             {word ?
                 <><FlashCard spanish={word.spanish} english={word.english} sNote={word.sNote ?? ""} eNote={word.eNote ?? ""} />
                     <Buttons forget={onClickForget} remember={onClickRemeber} familar={onClickFamilar} /></>
-                : <FlashCard spanish="No Words Need to Study" english="No Words Need to Study" sNote="" eNote="" />}
+                : <><FlashCard spanish="No Words Need to Study" english="No Words Need to Study" sNote="" eNote="" />
+                    <button onClick={onClick}></button></>}
 
             <AddButtons />
         </>

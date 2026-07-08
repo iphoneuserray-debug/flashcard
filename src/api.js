@@ -1,9 +1,9 @@
 import { Familarity } from "./App/pages/Home"
 import { supabase } from "./supabase"
 
-export async function getAll(familarity) {
+export async function getAll(familarity, limit) {
     let query = supabase.from("words").select()
-    if (familarity?.length) query = query.in("familarity", familarity)
+    if (familarity?.length) query = query.in("familarity", familarity).limit(limit ?? 9999)
     const { data, error } = await query
     if (error) console.log(error)
     return data
