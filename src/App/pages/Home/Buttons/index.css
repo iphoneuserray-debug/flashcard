@@ -1,42 +1,41 @@
 #buttons {
   display: flex;
-  gap: 10px;
-  width: 100%;
-  max-width: 500px;
+  gap: 12px;
+  width: min(92vw, 640px);
 }
 
 #buttons button {
   flex: 1;
-  font-weight: 600;
+  color: #ffffff;
+  border: none;
 }
 
 /* Semantic colours so the three actions read at a glance */
 #buttons button:nth-child(1) {
-  background: #fef2f2;
-  border-color: #fecaca;
-  color: #b91c1c;
-}
-
-#buttons button:nth-child(1):hover {
-  background: #fee2e2;
+  background: var(--red);
 }
 
 #buttons button:nth-child(2) {
-  background: #fffbeb;
-  border-color: #fde68a;
-  color: #b45309;
-}
-
-#buttons button:nth-child(2):hover {
-  background: #fef3c7;
+  background: var(--orange);
 }
 
 #buttons button:nth-child(3) {
-  background: #f0fdf4;
-  border-color: #bbf7d0;
-  color: #15803d;
+  background: var(--green);
+}
+
+#buttons button:hover {
+  filter: brightness(1.06);
+  background: initial;
+}
+
+#buttons button:nth-child(1):hover {
+  background: var(--red);
+}
+
+#buttons button:nth-child(2):hover {
+  background: var(--orange);
 }
 
 #buttons button:nth-child(3):hover {
-  background: #dcfce7;
+  background: var(--green);
 }

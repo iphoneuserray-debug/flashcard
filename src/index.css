@@ -1,16 +1,29 @@
-/* ---- Design tokens ---- */
-:root {
-  --bg: #f4f5f7;
-  --surface: #ffffff;
-  --text: #1f2430;
-  --muted: #6b7280;
-  --border: #e3e6ea;
-  --primary: #4f46e5;
-  --primary-hover: #4338ca;
-  --radius: 14px;
-  --shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 6px 20px rgba(16, 24, 40, .08);
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+/* ---- Design tokens ("units." inspired: warm light + bright accents) ---- */
+:root {
+  --bg: #efece6;
+  --surface: #ffffff;
+  --surface-2: #f5f3ef;
+  --text: #1b1a17;
+  --muted: #726d64;
+  --border: #e3ded5;
+  --radius: 18px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 10px 28px rgba(0, 0, 0, .07);
+
+  --blue: #3b6fe0;
+  --blue-hover: #2f5cc4;
+  --orange: #e0932f;
+  --green: #5b9c4f;
+  --red: #e5533d;
+  --dark: #1c1a17;
+
+  --primary: var(--blue);
+  --primary-hover: var(--blue-hover);
+
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  font-family: var(--font-body);
   line-height: 1.5;
   color: var(--text);
   -webkit-font-smoothing: antialiased;
@@ -20,34 +33,35 @@
   box-sizing: border-box;
 }
 
+/* Full-bleed light page */
 body {
   margin: 0;
   min-height: 100vh;
   background: var(--bg);
-  display: flex;
-  justify-content: center;
-  padding: 48px 16px;
+  color: var(--text);
 }
 
 #root {
   width: 100%;
-  max-width: 540px;
+  min-height: 100vh;
 }
 
-/* ---- Base controls ---- */
+/* ---- Base controls: rounded pill buttons, readable ---- */
 button {
-  font: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  padding: 10px 18px;
+  padding: 12px 22px;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 999px;
   background: var(--surface);
   color: var(--text);
-  transition: background .15s ease, border-color .15s ease, transform .05s ease;
+  transition: background .15s ease, transform .05s ease, filter .15s ease, border-color .15s ease;
 }
 
 button:hover {
-  background: #eef0f3;
+  background: var(--surface-2);
 }
 
 button:active {
@@ -55,6 +69,6 @@ button:active {
 }
 
 button:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--blue);
   outline-offset: 2px;
 }

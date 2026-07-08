@@ -1,9 +1,9 @@
-/* Vertical stack for the whole app: card, study buttons, add buttons */
+/* Study column */
 #root {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 22px;
 }
 
 /* Set picker: dropdown for choosing which familiarity sets to study */
@@ -13,31 +13,26 @@
 }
 
 .set-picker-toggle {
-  padding: 0.55rem 1.2rem;
-  border: none;
-  border-radius: 8px;
-  background: #4f46e5;
+  background: var(--blue);
   color: #ffffff;
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background 0.15s ease;
+  border: none;
 }
 
 .set-picker-toggle:hover {
-  background: #4338ca;
+  background: var(--blue-hover);
 }
 
 .set-picker-menu {
   position: absolute;
-  top: calc(100% + 6px);
-  left: 0;
-  min-width: 200px;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 240px;
   padding: 0.5rem;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
   z-index: 20;
 }
 
@@ -45,59 +40,40 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.5rem 0.6rem;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  color: #1f2937;
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--text);
   text-transform: capitalize;
   cursor: pointer;
 }
 
 .set-picker-option:hover {
-  background: #f3f4f6;
+  background: var(--surface-2);
 }
 
 .set-picker-option input {
-  width: 1rem;
-  height: 1rem;
-  accent-color: #4f46e5;
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--blue);
   cursor: pointer;
 }
 
 .set-picker-start {
   width: 100%;
-  margin-top: 0.4rem;
-  padding: 0.55rem;
-  border: none;
-  border-radius: 6px;
-  background: #4f46e5;
+  margin-top: 0.5rem;
+  background: var(--blue);
   color: #ffffff;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.15s ease;
+  border: none;
 }
 
 .set-picker-start:hover:not(:disabled) {
-  background: #4338ca;
+  background: var(--blue-hover);
 }
 
 .set-picker-start:disabled {
-  background: #c7c9d1;
+  background: #c3ccdd;
+  color: #ffffff;
   cursor: not-allowed;
-}
-
-@media (prefers-color-scheme: dark) {
-  .set-picker-menu {
-    background: #1e1f26;
-    border-color: #2b2d36;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  }
-
-  .set-picker-option {
-    color: #e5e7eb;
-  }
-
-  .set-picker-option:hover {
-    background: #2b2d36;
-  }
 }
