@@ -3,7 +3,7 @@ import './index.css'
 import FlashCard from './FlashCard'
 import Buttons from './Buttons'
 import AddButtons from './AddButtons'
-import { getBy } from '../../../api'
+import { getBy, update } from '../../../api'
 
 export const Familarity = Object.freeze({
     FORGET: 'FORGET',
@@ -29,18 +29,18 @@ export default function Home() {
     }
 
     const onClickForget = () => {
+        update(word.spanish, { familarity: Familarity.FORGET })
         getNextWord()
-        word.familarity = Familarity.FORGET
     }
 
     const onClickRemeber = () => {
+        update(word.spanish, { familarity: Familarity.REMEMBER })
         getNextWord()
-        word.familarity = Familarity.REMEMBER
     }
 
     const onClickFamilar = () => {
+        update(word.spanish, { familarity: Familarity.FAMILAR })
         getNextWord()
-        word.familarity = Familarity.FAMILAR
     }
 
     useEffect(() => {

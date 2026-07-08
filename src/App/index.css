@@ -5,3 +5,58 @@
   align-items: center;
   gap: 20px;
 }
+
+/* Top navigation bar */
+.app-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border-bottom: 1px solid #ececf0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.app-nav a {
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #4b5563;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.app-nav a:hover {
+  background: #f3f4f6;
+  color: #4f46e5;
+}
+
+/* NavLink adds .active to the link matching the current route */
+.app-nav a.active {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .app-nav {
+    background: #1e1f26;
+    border-bottom: 1px solid #2b2d36;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+
+  .app-nav a {
+    color: #cbd5e1;
+  }
+
+  .app-nav a:hover {
+    background: #2b2d36;
+    color: #a5b4fc;
+  }
+
+  .app-nav a.active {
+    background: #6366f1;
+    color: #ffffff;
+  }
+}

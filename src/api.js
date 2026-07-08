@@ -9,10 +9,12 @@ export async function getAll(familarity) {
     return data
 }
 
-export async function getBy() {
-    const {data, error} = await supabase.from("words").select("*")
-    if (error) console.log(error)
-    return data
+export async function update(spanish, updateField) {
+    const { error } = await supabase
+                            .from('words')
+                            .update(updateField)
+                            .eq('spanish', spanish)
+    if (error) console.error(error)
 }
 
 export async function creatOne(word) {
