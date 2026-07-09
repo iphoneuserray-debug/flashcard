@@ -19,6 +19,9 @@ export async function update(spanish, updateField) {
 }
 
 export async function creatOne(word) {
+    if (word.spanish == "" | word.english == "") {
+        return null
+    }
     const row = {
         spanish: word.spanish,
         english: word.english,

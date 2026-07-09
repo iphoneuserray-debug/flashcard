@@ -1,15 +1,14 @@
-import { useRef } from "react"
 import "./index.css"
 
-export default function DialogButton({ text, children }) {
-    const ref = useRef(null)
+export default function DialogButton({ text, dialogRef, children }) {
+
 
     return (
         <div id="add-buttons">
-            <button onClick={() => ref.current.show()}>{text}</button>
-            <dialog ref={ref}>
+            <button onClick={() => dialogRef.current.show()}>{text}</button>
+            <dialog ref={dialogRef}>
                 {children}
-                <button onClick={() => ref.current.close()} >Cancel</button>
+                <button onClick={() => dialogRef.current.close()} >Cancel</button>
             </dialog>
 
         </div >

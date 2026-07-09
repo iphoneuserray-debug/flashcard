@@ -11,10 +11,11 @@ function Word(spanish, english, sNote, eNote, familarity) {
 }
 
 export default function AddButtons({ text, children }) {
+    const ref = useRef(null)
 
     return (<>
-        <DialogButton text="Add New Word">
-            <NewWordInputFeilds />
+        <DialogButton text="Add New Word" dialogRef={ref}>
+            <NewWordInputFeilds dialogRef={ref} />
         </DialogButton>
         <DialogButton text="Add New Grammar">
             <NewGrammarInputFeilds />
@@ -23,18 +24,26 @@ export default function AddButtons({ text, children }) {
     )
 }
 
-const NewWordInputFeilds = () => {
+const NewWordInputFeilds = ({ dialogRef }) => {
     const [spanish, setSpanish] = useState("")
     const [english, setEnglish] = useState("")
     const [sNote, setSNote] = useState("")
     const [eNote, setENote] = useState("")
 
-    const onClick = () => {
+    const onSubmit = (e) => {
+        e.preventDefault()
         const reps = creatOne({ spanish, english, sNote, eNote })
+        if (reps) {
+            dialogRef.current.close()
+            setSpanish("")
+            setEnglish("")
+            setENote("")
+            setSNote("")
+        }
     }
 
     return (
-        <>
+        <form onSubmit={onSubmit}>
             <label htmlFor="spanish">Spanish</label>
             <input
                 type="text"
@@ -71,8 +80,8 @@ const NewWordInputFeilds = () => {
                 value={eNote}
                 onInput={e => setENote(e.target.value)}
             />
-            <button type="submit" onClick={onClick}>Submit</button>
-        </>
+            <button type="submit">Submit</button>
+        </form>
     )
 }
 

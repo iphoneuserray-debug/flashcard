@@ -1,5 +1,6 @@
 /* Trigger row (one per DialogButton) */
 #add-buttons {
+  position: relative;
   display: flex;
   justify-content: center;
   width: min(92vw, 640px);
@@ -18,7 +19,11 @@
 
 /* Dialog card — only style [open] so it stays hidden when closed */
 dialog {
-  margin: auto;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 0 8px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -29,6 +34,13 @@ dialog {
 }
 
 dialog[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Form wraps the inputs — carry the same column layout so fields stack */
+dialog form {
   display: flex;
   flex-direction: column;
   gap: 4px;
